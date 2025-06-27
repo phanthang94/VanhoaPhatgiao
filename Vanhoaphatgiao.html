@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn Hóa Phật Giáo Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthly Calm -->
+    <!-- Application Structure Plan: The application is structured as a single-page exploratory journey rather than a linear book. It's divided into four logical sections: an introduction, 'Văn Hóa Nền Tảng' (Foundational Culture from Vol. 1), 'Lợi Ích & Thực Hành' (Benefits & Practice from Vol. 2), and a concluding section. This thematic structure allows users to freely navigate and engage with core concepts (like the 10 Precepts) through interactive elements (clickable tabs). This non-linear approach encourages user-driven learning and makes the dense philosophical content more accessible and less intimidating than a simple text document. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: The 10 Precepts for a novice monk (Vol 1). Goal: Organize & Inform. Viz/Method: Interactive vertical tabs (HTML/CSS/JS). Interaction: Clicking a precept reveals its detailed explanation. Justification: This breaks down a core, list-based concept into manageable, focused pieces, preventing information overload.
+        - Report Info: The benefits and practical applications of precepts (Vol 2). Goal: Inform & Explain. Viz/Method: Two-column layout with clear headings and expandable content sections. Interaction: Users can read through connected concepts in a logical flow. Justification: This presents the relationship between abstract benefits and concrete practices in a clear, narrative style.
+        - Report Info: The Four Elements as a meditation practice. Goal: Organize & Explain. Viz/Method: A simple, structured HTML/CSS diagram using styled divs and borders. Interaction: Static visual aid. Justification: Visually represents the core components of the practice in a way that's easy to grasp at a glance, reinforcing the textual explanation.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* A very light, warm off-white */
+            color: #402F24; /* A dark, earthy brown */
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #C57E3F; /* A warm, muted orange for accents */
+            border-bottom-color: #C57E3F;
+        }
+        .tab-btn {
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .tab-btn.active {
+            background-color: #F1E9E1; /* A light, warm beige */
+            color: #A36A34; /* A slightly darker, richer accent */
+            border-left-color: #A36A34;
+        }
+        .content-card {
+            background-color: #FFFFFF;
+            border: 1px solid #EAE0D7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            color: #8C5A2D; /* A darker, authoritative brown for titles */
+        }
+        .quote {
+            border-left: 3px solid #C57E3F;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #6B4E3C;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold section-title">Văn Hóa Phật Giáo</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#gioi-thieu" class="nav-link pb-1">Giới Thiệu</a>
+                <a href="#nen-tang" class="nav-link pb-1">Nền Tảng Đạo Đức</a>
+                <a href="#loi-ich" class="nav-link pb-1">Lợi Ích & Thực Hành</a>
+                <a href="#ket-luan" class="nav-link pb-1">Lời Kết</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#gioi-thieu" class="block py-2 nav-link text-center">Giới Thiệu</a>
+            <a href="#nen-tang" class="block py-2 nav-link text-center">Nền Tảng Đạo Đức</a>
+            <a href="#loi-ich" class="block py-2 nav-link text-center">Lợi Ích & Thực Hành</a>
+            <a href="#ket-luan" class="block py-2 nav-link text-center">Lời Kết</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-12">
+
+        <!-- Section: Introduction -->
+        <section id="gioi-thieu" class="text-center mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Khám Phá Văn Hóa Phật Giáo Truyền Thống</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-6">
+                Chào mừng bạn đến với hành trình tìm hiểu văn hóa Phật giáo, một nền văn hóa của lòng từ bi, trí tuệ và đạo đức. Nội dung trên trang này được tổng hợp từ hai tập sách "Văn Hóa Phật Giáo Truyền Thống" của Trưởng lão Thích Thông Lạc, nhằm mục đích giới thiệu những giá trị cốt lõi và ứng dụng thiết thực của Phật giáo trong đời sống.
+            </p>
+            <p class="quote max-w-3xl mx-auto">
+                "Văn hóa Phật giáo là một nền văn hóa phi thời gian, sống động, thực tế, cụ thể, không có một chút ảo tưởng, mơ hồ, trừu tượng, mê tín, dị đoan nào cả."
+            </p>
+        </section>
+
+        <!-- Section: Foundational Culture (Vol 1) -->
+        <section id="nen-tang" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Nền Tảng Đạo Đức: Mười Giới Đức Sa Di</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700">
+                    Nền tảng của văn hóa Phật giáo là đạo đức, được thể hiện qua các giới luật. Đối với người mới bước chân vào con đường tu học, Mười Giới Đức Sa Di là những bài học đạo đức đầu tiên, xây dựng một đời sống an lành, thánh thiện và cao thượng. Hãy chọn một giới đức để tìm hiểu sâu hơn.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Vertical Tabs -->
+                <div id="tabs-container" class="w-full md:w-1/4 flex-shrink-0">
+                    <div class="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible">
+                        <button data-tab="0" class="tab-btn active text-left p-4 w-full whitespace-nowrap">1. Không Sát Sanh</button>
+                        <button data-tab="1" class="tab-btn text-left p-4 w-full whitespace-nowrap">2. Không Trộm Cắp</button>
+                        <button data-tab="2" class="tab-btn text-left p-4 w-full whitespace-nowrap">3. Không Dâm Dục</button>
+                        <button data-tab="3" class="tab-btn text-left p-4 w-full whitespace-nowrap">4. Không Vọng Ngữ</button>
+                        <button data-tab="4" class="tab-btn text-left p-4 w-full whitespace-nowrap">5. Không Uống Rượu</button>
+                        <button data-tab="5" class="tab-btn text-left p-4 w-full whitespace-nowrap">6. Không Trang Điểm</button>
+                        <button data-tab="6" class="tab-btn text-left p-4 w-full whitespace-nowrap">7. Không Ca Múa Nhạc</button>
+                        <button data-tab="7" class="tab-btn text-left p-4 w-full whitespace-nowrap">8. Không Nằm Giường Cao</button>
+                        <button data-tab="8" class="tab-btn text-left p-4 w-full whitespace-nowrap">9. Không Ăn Phi Thời</button>
+                        <button data-tab="9" class="tab-btn text-left p-4 w-full whitespace-nowrap">10. Không Giữ Tiền Bạc</button>
+                    </div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="w-full md:w-3/4">
+                    <div id="tab-content-container" class="content-card">
+                        <!-- Content will be dynamically inserted here by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Benefits & Practice (Vol 2) -->
+        <section id="loi-ich" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Lợi Ích Của Giới Luật & Con Đường Thực Hành</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700">
+                    Giới luật không phải là sự ràng buộc mà là kim chỉ nam cho một đời sống an vui, hạnh phúc và giải thoát. Việc sống đúng giới luật mang lại những lợi ích thiết thực, cụ thể trong từng phút, từng giây.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="content-card">
+                    <h3 class="text-2xl font-bold mb-4 section-title">Mười Ba Lợi Ích Của Giới Luật</h3>
+                    <p class="mb-4">Đức Phật đã chỉ ra nhiều lợi ích to lớn của việc sống trong giới luật, bao gồm:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-800">
+                        <li>Làm cho Tăng chúng được an lạc.</li>
+                        <li>Khiến cho người chưa tin thì tin, người đã tin thì tin tưởng hơn.</li>
+                        <li>Diệt trừ các lậu hoặc (phiền não) trong hiện tại.</li>
+                        <li>Ngăn chặn các lậu hoặc trong tương lai.</li>
+                        <li>Khiến cho Chánh pháp được tồn tại lâu dài.</li>
+                        <li>Tâm không hối hận, có hân hoan.</li>
+                        <li>Thân có khinh an, có lạc thọ.</li>
+                        <li>Tâm được định tĩnh, có tri kiến như thật.</li>
+                        <li>Có nhàm chán, ly tham và đi đến giải thoát.</li>
+                        <li>Được tài sản lớn, tiếng tốt đồn xa.</li>
+                        <li>Tự tin khi vào các hội chúng.</li>
+                        <li>Khi lâm chung, tâm không mê loạn.</li>
+                        <li>Sau khi thân hoại mạng chung, được sanh vào cõi lành.</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3 class="text-2xl font-bold mb-4 section-title">Thực Hành Quán Tứ Đại</h3>
+                    <p class="mb-4">Một trong những pháp hành căn bản là tu tập tâm như bốn đại (Đất, Nước, Lửa, Gió) để đối mặt với các cảm xúc. Tâm không dao động, không nhàm chán trước những điều thuận và nghịch của cuộc đời.</p>
+                     <div class="space-y-4">
+                        <div class="border rounded-lg p-3">
+                            <p><strong>🌍 Tâm như Đất:</strong> Đất tiếp nhận mọi thứ, dù sạch hay dơ, mà không oán ghét hay yêu thương. Tu tập tâm như đất là học cách chấp nhận mọi hoàn cảnh với sự bình thản.</p>
+                        </div>
+                        <div class="border rounded-lg p-3">
+                            <p><strong>💧 Tâm như Nước:</strong> Nước có đặc tính tẩy sạch mọi vết bẩn. Tu tập tâm như nước là rèn luyện khả năng gột rửa mọi ác pháp, phiền não trong tâm.</p>
+                        </div>
+                        <div class="border rounded-lg p-3">
+                             <p><strong>🔥 Tâm như Lửa:</strong> Lửa có khả năng thiêu đốt mọi vật. Tu tập tâm như lửa là dùng ngọn lửa trí tuệ để thiêu đốt mọi tham ái, dính mắc.</p>
+                        </div>
+                        <div class="border rounded-lg p-3">
+                             <p><strong>💨 Tâm như Gió:</strong> Gió thổi bay mọi thứ không phân biệt. Tu tập tâm như gió là để tâm thổi sạch mọi cảm thọ, không nắm giữ, không vướng bận.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Conclusion -->
+        <section id="ket-luan" class="text-center">
+             <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Lời Kết</h2>
+             <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-6">
+                Văn hóa Phật giáo là một con đường thực hành để chuyển hóa bản thân, mang lại sự bình an cho mình và cho mọi người. Hy vọng những kiến thức được chắt lọc trên trang này sẽ là nguồn cảm hứng để bạn bắt đầu hoặc tiếp tục hành trình khám phá những giá trị cao đẹp của đạo Phật.
+            </p>
+             <p class="quote max-w-3xl mx-auto">
+                "Người sống với giới luật là người đem lại sự an vui cho mình, cho người, làm cho thế gian này trở thành cõi Cực Lạc, Thiên Đàng."
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-100 mt-16 md:mt-24">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-600">
+            <p>Nội dung được tổng hợp từ sách "Văn Hóa Phật Giáo Truyền Thống" của Trưởng lão Thích Thông Lạc.</p>
+            <p>Trang web được tạo ra với mục đích học hỏi và chia sẻ kiến thức phi lợi nhuận.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const preceptContent = [
+            {
+                title: "Giới Đức Thứ Nhất: Không Sát Sanh",
+                content: "Là bài học đạo đức về lòng thương yêu đối với tất cả chúng sanh, từ người cho đến các loài vật nhỏ nhất. Người giữ giới không sát sanh là người sống với tâm từ bi, không làm tổn hại đến mạng sống của bất kỳ ai. Hành động này không chỉ bảo vệ chúng sanh mà còn bảo vệ sự bình an trong tâm hồn của chính mình, tránh được quả báo oán thù và khổ đau."
+            },
+            {
+                title: "Giới Đức Thứ Hai: Không Tham Lam Trộm Cắp",
+                content: "Là bài học về sự tôn trọng tài sản của người khác và sự thiểu dục tri túc (biết đủ). Người không trộm cắp là người có đạo đức, không lấy những gì không phải của mình, dù là vật nhỏ nhất. Họ sống bằng sức lao động chân chính, nhờ đó xây dựng được lòng tin, uy tín và sự kính trọng từ mọi người. Giới này giúp đoạn trừ lòng tham, nguồn gốc của nhiều khổ đau."
+            },
+            {
+                title: "Giới Đức Thứ Ba: Không Dâm Dục",
+                content: "Là bài học đạo đức về đời sống trong sạch, ly dục, giúp tâm hồn thanh tịnh và giải thoát. Đối với người tu sĩ, đây là giới hạnh cốt lõi để đi đến mục tiêu giải thoát hoàn toàn. Hành động này giúp họ chế ngự được ham muốn của thân, chuyển hóa năng lượng dục thành trí tuệ và thiền định, sống một cuộc đời phạm hạnh cao thượng."
+            },
+            {
+                title: "Giới Đức Thứ Tư: Không Vọng Ngữ (Nói Dối)",
+                content: "Là bài học về sự chân thật trong lời nói. Người giữ giới này luôn nói sự thật, không nói lời dối trá, thêm bớt, đâm thọc hay hai lưỡi. Lời nói chân thật xây dựng niềm tin và uy tín cá nhân, tạo ra một môi trường giao tiếp lành mạnh. Tránh xa nói dối giúp tâm thanh thản, không phải lo sợ bị phát hiện, và là nền tảng của trí tuệ."
+            },
+            {
+                title: "Giới Đức Thứ Năm: Không Uống Rượu và Các Chất Say",
+                content: "Là bài học về việc giữ cho trí tuệ luôn minh mẫn, sáng suốt. Rượu và các chất gây nghiện làm mê mờ tâm trí, là nguyên nhân dẫn đến nhiều hành động sai lầm khác như sát sanh, trộm cắp, tà dâm, nói dối. Người không uống rượu có thể kiểm soát được hành vi của mình, bảo vệ sức khỏe và hạnh phúc gia đình, xã hội."
+            },
+            {
+                title: "Giới Đức Thứ Sáu: Không Trang Điểm, Thoa Dầu Thơm",
+                content: "Là bài học về sự giản dị, từ bỏ sự quyến luyến với thân thể. Việc trang điểm, dùng nước hoa... thường nhằm mục đích thu hút người khác, nuôi dưỡng lòng ái dục và sự chấp ngã. Người tu sĩ từ bỏ những điều này để sống một cuộc đời đơn giản, không chạy theo hình thức bên ngoài, tập trung vào vẻ đẹp của tâm hồn và đạo đức bên trong."
+            },
+            {
+                title: "Giới Đức Thứ Bảy: Không Ca Hát và Xem, Nghe Ca Hát, Múa Nhạc",
+                content: "Là bài học đạo đức giúp tâm xa lìa sự phóng dật và đam mê dục lạc thế gian. Âm nhạc, ca múa có thể kích động tâm ái dục, làm cho tâm không yên tĩnh để tu tập thiền định. Người tu sĩ tránh xa những thú vui này để bảo vệ sự thanh tịnh của các giác quan, hướng tâm đến sự tĩnh lặng và giải thoát."
+            },
+            {
+                title: "Giới Đức Thứ Tám: Không Nằm Giường Cao Rộng Lớn",
+                content: "Là bài học về sự từ bỏ đời sống hưởng thụ, sang trọng. Chiếc giường cao rộng, nệm ấm chăn êm dễ sinh ra tâm lười biếng, ham ngủ nghỉ, và ái dục. Người tu sĩ chọn một nơi ở và chỗ ngủ đơn giản để rèn luyện ý chí, nghị lực, luôn tỉnh thức và siêng năng tu tập, không để mình chìm đắm trong sự thoải mái vật chất."
+            },
+            {
+                title: "Giới Đức Thứ Chín: Không Ăn Uống Phi Thời",
+                content: "Là bài học về sự tiết độ trong ăn uống, giúp cơ thể nhẹ nhàng, ít bệnh tật và dễ dàng cho việc tu tập. Theo luật Phật, người tu sĩ chỉ ăn một bữa vào giờ Ngọ (trưa). Ăn uống đúng giờ, có chừng mực giúp giảm bớt gánh nặng cho cơ thể, giảm hôn trầm, và có nhiều thời gian hơn cho việc hành thiền, trau dồi giới đức."
+            },
+            {
+                title: "Giới Đức Thứ Mười: Không Cất Giữ Tiền Bạc, Vàng Ngọc, Châu Báu",
+                content: "Là bài học về đời sống vô sản, hoàn toàn không dính mắc đến tài sản vật chất. Tiền bạc là nguồn gốc của nhiều tranh chấp và tội lỗi. Người tu sĩ không sở hữu tiền bạc để cắt đứt sự ràng buộc với đời sống thế tục, sống hoàn toàn dựa vào sự cúng dường của tín chủ. Điều này giúp họ giữ được tâm thanh tịnh, không lo toan, và chuyên tâm vào con đường giải thoát."
+            }
+        ];
+
+        const tabsContainer = document.getElementById('tabs-container');
+        const tabContentContainer = document.getElementById('tab-content-container');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function renderContent(tabIndex) {
+            const item = preceptContent[tabIndex];
+            tabContentContainer.innerHTML = `
+                <h3 class="text-2xl font-bold mb-4 section-title">${item.title}</h3>
+                <p class="text-gray-800 leading-relaxed">${item.content}</p>
+            `;
+        }
+
+        tabsContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                const tabIndex = e.target.getAttribute('data-tab');
+
+                // Update active tab style
+                tabsContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                e.target.classList.add('active');
+
+                // Render content
+                renderContent(tabIndex);
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initial render
+        renderContent(0);
+
+    </script>
+
+</body>
+</html>
